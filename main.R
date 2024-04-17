@@ -1,10 +1,7 @@
-library("ggplot2")
 library(readr)
 
-line_chart <- create_line_chart(dados)
-print(line_chart)
 # Função para contar quando os valores começam a diminuir
-
+dados <- read.csv(file = "data.csv", header = TRUE, sep = ",")
 contar_diminuicoes <- function(valores) {
   contador <- 0
   for (i in 2:length(meus_valores)) {
@@ -15,13 +12,12 @@ contar_diminuicoes <- function(valores) {
   return(contador)
 }
 
-# Exemplo de uso:
-meus_valores <- dados$V55
+meus_valores <- dados$V51
 total_diminuicoes1 <- contar_diminuicoes(meus_valores)
-cat("Total de diminuições:", total_diminuicoes, "\n")
-meus_valores <- dados$V54
+cat("Total de diminuições:", total_diminuicoes1, "\n")
+meus_valores <- dados$V52
 total_diminuicoes2 <- contar_diminuicoes(meus_valores)
-cat("Total de diminuições:", total_diminuicoes, "\n")
+cat("Total de diminuições:", total_diminuicoes2, "\n")
 
 total_diminuicoes <- total_diminuicoes1 - total_diminuicoes2
 print(total_diminuicoes)
